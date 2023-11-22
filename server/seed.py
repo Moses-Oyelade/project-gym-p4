@@ -89,24 +89,24 @@ with app.app_context():
 # #Seeding to add each model data
   
     users = []
-    for i in range(60):
+    for i in range(20):
         u = User(
             name =fake.name(),
             gender = rc(genders),
-            age = randint(16, 60),
+            age = randint(17, 70),
             email = fake.email(),
-            phone_no = fake.numerify('081-###-####'),
+            phone = fake.numerify('081-###-####'),
             
         )
         users.append(u)
     db.session.add_all(users)
     
     plans = []
-    for i in range(60):
+    for i in range(20):
         p = Plan(
             plan_name = rc(plan_names),
             package = rc(packages),
-            user_id = randint(1, 60),
+            user_id = randint(1, 20),
             instructor_id =randint(1, 8),
             
         )
