@@ -42,14 +42,16 @@ python seed.py
 
 cd to the server folder, then run the following command:
 
-```python app.py
+```python 
+python app.py
 ```
 
 ### Run front-end
 
 cd to the client folder, then run the following command:
 
-```npm start
+```
+npm start
 ```
 You can now access and interact with the data from the database through the front-end(website).
 
@@ -69,9 +71,6 @@ To learn more about querying using SQLAlchemy: [SQLAlchemy Documentation](https:
 
 Check out Faker for all of your database seeding needs: [Faker Documentation](https://faker.readthedocs.io/en/master/)
 
-Do your tables look awful? Check out Pandas to learn how to pretty-print your data! [Pandas Documentation](https://pandas.pydata.org/)
-
-Test out user input verification: [Regex101](https://regex101.com/)
 
 Display selectable options in the terminal and return the selection ID (or whatever you want!) using Inquirer: [Inquirer Documentation](https://pypi.org/project/inquirer/)
 
