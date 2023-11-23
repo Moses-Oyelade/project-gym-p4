@@ -4,21 +4,24 @@ import { Link } from "react-router-dom";
 
 
 function About() {
-  const [users, setUsers] = useState([]);
+  const [instructors, setInstructors] = useState([]);
+  const [likes, setLikes] = useState(0);
+  const [disLikes, setDisLikes] = useState(0);
+  const [index, setIndex] = useState(0)
 
   useEffect(() => {
-    fetch('/users')
+    fetch('/instructors')
     .then((r) => r.json())
-    .then(setUsers);
+    .then(setInstructors);
   },[]);
 
   function handleDelete(id){
-    fetch(`/users/${id}`,{
+    fetch(`/instructors/${id}`,{
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
-        setUsers((users) =>
-        users.filter((user) => user.id !== id)
+        setInstructors((instructors) =>
+        instructors.filter((instructor) => instructor.id !== id)
         );
       }
     });
@@ -28,17 +31,17 @@ function About() {
     <div>
       <h1>Enrolled Info</h1>
       <section className="user_container">
-        {users.map((user) => (
-          <div key={user.id} className="card">
+        {instructors.foreach((instructor) => (
+          <div key={instructor.id} className="card">
             <h2>
-              <Link to = {`/users/${user.id}`}>{user.name}</Link>
+              {instructor.name}
             </h2>
-            <h5>Gender: {user.gender}</h5>
+            <h5>Gender: {u.gender}</h5>
             <h5>E-mail: {user.email}</h5>
             <p>Subcription:{user.plans}</p>
             <button onClick={() => handleDelete(user.id)}>Delete</button>
           </div>
-        ))}
+        ))} 
       </section>    
     </div>
   );

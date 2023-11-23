@@ -16,6 +16,7 @@ function App() {
       </header>
       <Routes className="App">
           <Route path="/about" element={ <About/> } />
+          <Route path="/enrolled" element={ <Enrolled/> } />
           <Route path="/register" element={ <Register/> } />
           <Route path="/users/:id" element={ <Display/>} />
           <Route path="/" element = { <Home/> } />
