@@ -4,6 +4,7 @@ import About from '../pages/About';
 import Register from "../pages/Register";
 import Navbar from "./Navbar"; 
 import Display from '../components/Display';
+import Enrolled from "../pages/Enrolled";
 import './AppA.css'
 
 function App() {

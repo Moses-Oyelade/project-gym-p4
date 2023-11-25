@@ -10,11 +10,9 @@ function Home() {
   return (
     <>
       <div>
-        <h1>Home
-            <h2>
-              <Link to = {`/enrolled`}><button>ADMIN</button></Link>
-            </h2>
-        </h1>
+          <h3>
+            <Link to = {`/enrolled`}><button type="admin">ADMIN</button></Link>
+          </h3>
           <h2>
           Welcome to FIX'T GYM!
           </h2>

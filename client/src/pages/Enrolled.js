@@ -28,7 +28,7 @@ function Enrolled() {
 
   return (
     <>
-        <div>Enrolled</div>
+        <h2>Enrolled Info</h2>
         <section className="user_container">
         {users.map((user) => (
           <div key={user.id} className="card">

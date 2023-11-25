@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-
+import { Link } from "react-router-dom";
 
 function RegiForm() {
-  const [users, setUsers] = useState([{}]);
   const [refreshPage, setRefreshPage] = useState(false);
-  
-
-  useEffect(() => {
-    console.log("FETCH! ");
-    fetch("/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data);
-        console.log(data);
-      });
-  }, [refreshPage]);
 
   const formSchema = yup.object().shape({
-    name: yup.string().required("Must enter a name").max(15),
+    name: yup.string().required("Must enter a name").max(20),
     gender: yup.string().required("Must enter male or Female").max(15),
     age: yup
       .number()
@@ -38,6 +26,11 @@ function RegiForm() {
     
   });
 
+  function handleReset() {
+    formik.values = (" ")
+    
+  }
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -46,12 +39,14 @@ function RegiForm() {
       email: "",
       phone: "",
       
-     
-
-      
     },
+
+    
     validationSchema: formSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, {resetForm}) => {
+      resetForm({ values: ''})
+      handleReset() 
+
       fetch("/users", {
         method: "POST",
         headers: {
@@ -69,8 +64,9 @@ function RegiForm() {
 
   return (
     <div>
+      <Link to = {'/about'}><button>Back</button></Link>
       <h1>User sign up form</h1>
-      <form onSubmit={formik.handleSubmit} style={{ margin: "30px" }}>
+      <form onSubmit={formik.handleSubmit}  style={{ margin: "30px" }}>
       <label htmlFor="name">Name</label>
         <br />
         <input
@@ -122,35 +118,8 @@ function RegiForm() {
           value={formik.values.phone}
         />
         <p style={{ color: "red" }}> {formik.errors.phone}</p>
-        <button type="submit">Submit</button>
+        <button  type="submit">Submit</button>
       </form>
-      
-      {/* <table style={{ padding: "15px" }}>
-        <tbody>
-          <tr>
-            <th>name</th>
-            <th>gender</th>
-            <th>age</th>
-            <th>email</th>
-            <th>phone</th>
-          </tr>
-          {users === "undefined" ? (
-            <p>Loading</p>
-          ) : (
-            users.map((user, i) => (
-              <>
-                <tr key={i}>
-                  <td>{user.name}</td>
-                  <td>{user.gender}</td>
-                  <td>{user.age}</td>                 
-                  <td>{user.email}</td>
-                  <td>{user.phone}</td>
-                </tr>
-              </>
-            ))
-          )}
-        </tbody>
-      </table> */}
     </div>
   );
 };

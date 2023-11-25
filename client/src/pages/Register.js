@@ -6,11 +6,6 @@ import RegiForm from '../components/RegiForm';
 
 function Register() {
     const [users, setUsers] = useState([]);
-    // const [newChange, setNewChange] = useState([])
-    // const [search, setSearch] = useState("");
-
-    // let count = 1
-
 
     useEffect(() => {
         fetch("/users")
@@ -19,42 +14,13 @@ function Register() {
     
       }, [users])
 
-  
-    //   function handleFilterChange (e) {
-    //       e.preventDefault();
-    //       console.log(e.target.value)
-    //       setSearch(e.target.value)
-  
-    //   }
-  
-    //       useEffect(() => {
-    //         console.log("filter")
-    //       fetch("/users")
-    //       .then((r) => r.json())
-    //       .then((users) => 
-    //           setUsers(users))
-          
-    //         },[search, setUsers]);
-      
-      
-    //   const displayedUsers= users.filter((user) =>
-    //   user.name.toLowerCase().includes(search.toLowerCase())
-    // );
     
   return (
     <>
         <div>
-            <h1>Register</h1>
-        </div>
-        {/* <div>
-            <Filter search = {search}
-            onSearchChange={setSearch}
-            />
-        </div> */}
-        <div>
-            <RegiForm
-            //    users={displayedUsers}
-            />
+            <h4>Register and become Enrolled</h4>
+        
+            <RegiForm/>
         </div>
     </>
   )
