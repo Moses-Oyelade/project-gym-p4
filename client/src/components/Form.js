@@ -5,6 +5,7 @@ function Form({ userId, onAddPlan }) {
   const [planName, setPlanName] = useState("");
   const [packageList, setPackageList] = useState("");
   const [formErrors, setFormErrors] = useState([]);
+  const [refreshPage, setRefreshPage] = useState(false);
 
   const packages = [
     "Strength, Circuit training, Swimming,  Dance, Kick bocking",
@@ -25,11 +26,16 @@ const planType = [
 
   function handleSubmit(e) {
     e.preventDefault();
+    alert(`You have subcribed to ${planName}`)
     const formData = {
       user_id: userId,
       plan_name: planName,
       package: packageList,
     };
+    
+
+    setPlanName("")
+    setPackageList("")
 
     fetch("/plans", {
       method: "POST",
@@ -42,6 +48,7 @@ const planType = [
         r.json().then((newPlan) => {
           onAddPlan(newPlan);
           setFormErrors([]);
+          setRefreshPage(refreshPage);
         });
       } else {
         r.json().then((err) => setFormErrors(err.errors));
@@ -90,7 +97,7 @@ const planType = [
           <button type="submit">Add Plan</button>
         </p>
         <p>
-          <Link to = {`/enrolled`}><button type="Cancel">Cancel</button></Link>
+          <Link to = {`/enrolled`}><button type="Cancel">Back</button></Link>
         </p>
       
     </form>

@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
   return (
     <header>
         <div className='Navbar'>
-        <nav className='navlink'>
-          <ul>
+        <nav >
+          <ul className='navlink'>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             {/* <li><Link to="/enrolled">Enrolled</Link></li> */}

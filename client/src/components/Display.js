@@ -28,11 +28,11 @@ function Display() {
     }, [id]);
 
     
-    function handleAddPlan(newPlan) {
+    function handleAddPlan() {
         setUser({
           data: {
             ...user,
-            plans: [...user.plans, newPlan],
+            plans: [user.plans],
           },
           error: null,
           status: "resolved",
