@@ -3,10 +3,10 @@
 #### By *Moses O. Oyelade*
 
 # FIX'T - A GYM website
-Fix'T is a Gym website, commited to enrolling individual of age over sixteen years(16+).
-this age controll became neccesary as there was a call for high safety level at the fitness facility.
+Fix'T is a Gym website, committed to enrolling the individual of age over sixteen years(16+).
+This age control is important, as there was a call for a high safety level at the fitness facility.
 
-FIX'T is a website allowing users both admin and enrolled to query from a SQLAlchemy database of users(enrolled). The database is set up with many-to-many relationships backrefered through the user table. Users can have many Plans and Users can have more than one instructor.
+FIX'T is a website allowing users both admin and enrolled to query from a SQLAlchemy database of users(enrolled). The database is set up with many-to-many relationships backrefered through the user table. Users can choose more than one subscription Plan and Users can have more than one instructor.
 
 The Navigation pages include:
 
